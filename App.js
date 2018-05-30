@@ -12,7 +12,7 @@ const initialLayout = {
   width: Dimensions.get('window').width,
 };
 
-const FirstRoute = () => <View style={[ styles.container, /*{ backgroundColor: '#FFCCCC' }*/ ]} ><Main/></View>;
+const FirstRoute = () => <View style={[ styles.container, { backgroundColor: '#FFCCCC' } ]} ><Main/></View>;
 const SecondRoute = () => <View style={[ styles.container, { backgroundColor: '#FFFF99' } ]}><EventsView/></View>;
 const ThirdRoute = () => <View style={[ styles.container, { backgroundColor: 'white'}]} />;
 const FourRoute = () => <View style={[ styles.container, ]}> <AgendaScreen/></View>;
@@ -26,7 +26,7 @@ export default class TabViewExample extends React.Component {
       { key: 'first', title: 'Note' },
       { key: 'second', title: 'Event' },
       { key: 'third', title: 'Me'},
-      { key: 'four', title: 'Calendar'},
+      { key: 'four', title: 'Calend'},
     ],
   };
   }
@@ -61,6 +61,6 @@ export default class TabViewExample extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // paddingTop: Platform.OS === "ios" ? 30 : 0,
+    paddingTop: Platform.OS === "ios" ? 25 : 0,
   },
 });

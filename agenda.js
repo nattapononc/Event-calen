@@ -19,23 +19,29 @@ export default class AgendaScreen extends Component {
       <Agenda
         items={this.state.items}
         loadItemsForMonth={this.loadItems.bind(this)}
-        selected={'2017-05-16'}
+        selected={''}
         renderItem={this.renderItem.bind(this)}
         renderEmptyDate={this.renderEmptyDate.bind(this)}
         rowHasChanged={this.rowHasChanged.bind(this)}
-        // markingType={'period'}
-        // markedDates={{
-        //    '2017-05-08': {textColor: '#666'},
-        //    '2017-05-09': {textColor: '#666'},
-        //    '2017-05-14': {startingDay: true, endingDay: true, color: 'blue'},
-        //    '2017-05-21': {startingDay: true, color: 'blue'},
-        //    '2017-05-22': {endingDay: true, color: 'gray'},
-        //    '2017-05-24': {startingDay: true, color: 'gray'},
-        //    '2017-05-25': {color: 'gray'},
-        //    '2017-05-26': {endingDay: true, color: 'gray'}}}
-         // monthFormat={'yyyy'}
-         // theme={{calendarBackground: 'red', agendaKnobColor: 'green'}}
-        //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
+        markingType={'period'}
+        markedDates={{
+          
+           '2012-05-04': {disabled: true, startingDay: true, color: 'green', endingDay: true},
+           '2017-05-08': {textColor: '#666'},
+           '2017-05-09': {textColor: '#666'},
+           '2017-05-14': {startingDay: true, endingDay: true, color: 'blue'},
+           '2012-05-20': {textColor: 'green'},
+           '2017-05-21': {startingDay: true, color: 'blue'},
+           '2012-05-22': {startingDay: true, color: 'green'},
+           '2017-05-22': {endingDay: true, color: 'gray'},
+           '2012-05-23': {selected: true, endingDay: true, color: 'green', textColor: 'gray'},
+           '2017-05-24': {startingDay: true, color: 'gray'},
+           '2017-05-25': {color: 'gray'},
+           '2017-05-26': {endingDay: true, color: 'gray'},
+           
+          }}
+         monthFormat={'yyyy'}
+        renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
       />
     );
   }
@@ -56,14 +62,15 @@ export default class AgendaScreen extends Component {
           }
         }
       }
-      //console.log(this.state.items);
+      console.log(this.state.items);
       const newItems = {};
       Object.keys(this.state.items).forEach(key => {newItems[key] = this.state.items[key];});
       this.setState({
         items: newItems
       });
+      console.log(newItems);
     }, 1000);
-    // console.log(`Load Items for ${day.year}-${day.month}`);
+     console.log(`Load Items for ${day.year}-${day.month}`);
   }
 
   renderItem(item) {

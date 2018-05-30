@@ -35,7 +35,7 @@ export default class Tap extends React.Component {
             })
             .catch(error => console.log(error))
 
-        axios.get('http://192.168.40.165:2403/users', user)
+        axios.get('http://192.168.40.165:2403/users', )
             .then(res => {
               console.log(res);
               console.log(res.data);

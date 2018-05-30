@@ -33,7 +33,7 @@ export default class EventsView extends Component {
   }
 
   eventClickListener = (viewId) => {
-    Alert.alert("alert", "event clicked");
+    Alert.alert("alert ", "event clicked");
   }
 
   render() {
