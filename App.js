@@ -13,7 +13,7 @@ const initialLayout = {
 };
 
 const FirstRoute = () => <View style={[ styles.container, { backgroundColor: '#DCDCDC' } ]} ><Main/></View>;
-const SecondRoute = () => <View style={[ styles.container, { backgroundColor: '#FFFF99' } ]}><EventsView/></View>;
+const SecondRoute = () => <View style={[ styles.container, { backgroundColor: '#DCDCDC' } ]}><EventsView/></View>;
 const ThirdRoute = () => <View style={[ styles.container, { backgroundColor: 'white'}]} />;
 const FourRoute = () => <View style={[ styles.container, ]}> <AgendaScreen/></View>;
 

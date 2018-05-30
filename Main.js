@@ -74,7 +74,7 @@ export default class Main extends Component {
       <View style={styles.container}>
           <View style={styles.header}>
             <Text style={styles.headerText}>
-              Note
+              NOTE
             </Text>
          </View>
           <ScrollView style={styles.scrollContainer}>
@@ -86,7 +86,7 @@ export default class Main extends Component {
               onChangeText={(text)=> this.setState({text})}
               value={this.state.text}
               placeholder='note'
-              placeholderTextColor='white'
+              placeholderTextColor='#b2b2b2'
               underlineColorAndroid='transparent'>
             </TextInput>
         </View>
@@ -129,10 +129,11 @@ const styles = StyleSheet.create({
   	flex:1,
   },
   header: {
+    borderRadius:5,
   	backgroundColor: '#3498db',
   	alignItems: 'center',
   	justifyContent: 'center',
-  	borderBottomWidth: 10,
+  	borderBottomWidth: 0,
   },
   headerText: {
   	color: 'white',
@@ -152,23 +153,27 @@ const styles = StyleSheet.create({
   	zIndex: 10,
   },
   textInput: {
+    borderRadius:10,
+    flex:1,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
   	alignSelf: 'stretch',
-  	color: '#FFF',
+  	color: '#000000',
   	fontSize: 16,
   	padding: 20,
   	paddingLeft: 20,
-  	backgroundColor: '#252525',
-  	borderTopWidth: 2,
+  	backgroundColor: '#FFFFFF',
+  	borderTopWidth: 0,
   	borderRightColor: '#EDEDED',
   },
   addButton: {
   	position: 'absolute',
-  	zIndex: 11,
+  	zIndex: 20,
   	right: 20,
-  	bottom: 90,
+  	bottom: 25,
   	backgroundColor: '#3498db',
-  	width: 60,
-  	height: 60,
+  	width: 70,
+  	height: 70,
   	borderRadius: 50,
   	alignItems: 'center',
   	justifyContent: 'center',
@@ -176,6 +181,6 @@ const styles = StyleSheet.create({
   },
   addButtonText: {
   	color: '#FFF',
-  	fontSize: 20,
+  	fontSize: 30,
   },
 });

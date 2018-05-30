@@ -10,21 +10,21 @@ export default class Note extends Component {
   render() {
     return (
 
-      <View key={this.props.keyval} style={styles.noteBox}>
-      <Text style={styles.noteTextIndex} >{this.props.keyval+1}</Text>
+             <View key={this.props.keyval} style={styles.noteBox}>
+        <Text style={styles.noteTextIndex} >{this.props.keyval+1}</Text>
 
-      <View style={styles.note}>
-        <Text style={styles.noteTextDate} >{this.props.val.date}</Text>
-        <Text style={styles.noteText} >Note: {this.props.val.note}</Text>
-  
+        <View style={styles.note}>
+          <Text style={styles.noteTextDate} >{this.props.val.date}</Text>
+          <Text style={styles.noteText} >Note: {this.props.val.note}</Text>
+    
+        </View>
+        <TouchableOpacity onPress={this.props.deleteMethod} style={styles.noteDelete}>
+          <Text style={styles.noteDeleteText}>Delete</Text>
+        </TouchableOpacity>    
       </View>
-      <TouchableOpacity onPress={this.props.deleteMethod} style={styles.noteDelete}>
-        <Text style={styles.noteDeleteText}>Delete</Text>
-      </TouchableOpacity>    
-    </View>
 
-  );
-}
+    );
+  }
 }
 
 
@@ -48,13 +48,13 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingLeft: 15,
     paddingRight: 15,
-    backgroundColor: '#E91E63',
+    backgroundColor: '#0099FF',
     fontSize: 24,
     color: 'white',
   },
   noteTextDate: {
     marginTop: -3,
-    color: 'red',
+    color: '#0099FF',
     fontSize: 16,
   },
   noteText: {
