@@ -17,8 +17,8 @@ export default class Main extends Component {
 
   componentDidMount(){
     axios.get('http://192.168.40.165:2403/note')
-    .then(res => {const note = res.data;
-    this.setState({note})
+    .then(res => {const name = res.data;
+    this.setState({name})
     })
   }
   
@@ -28,9 +28,8 @@ export default class Main extends Component {
         this.state = {
             noteArray: [],
             noteText: '',
-            note: '',
+            name: '',
             text: '',
-            id: '',
             
         }
       }
@@ -40,7 +39,7 @@ export default class Main extends Component {
 
 
         const note = {
-            note: this.state.text
+            name: this.state.text
         };
 
         axios.post('http://192.168.40.165:2403/note', note)
@@ -60,24 +59,10 @@ export default class Main extends Component {
     }
 
     handleChange = (text) => {
-      this.setState({note:text})
+      this.setState({name:text})
     }    
     
-    handleDelete = event => {
-      this.setState({ id: event.target.value });
-    }
-
-    handleOut = event => {
-      event.preventDefault();
   
-      axios.delete(`http://localhost:2403/test/${this.state.id}`)
-        .then(res => {
-          console.log(res);
-          console.log(res.data);
-      })
-    }
-
-
   render() {
     
     let notes=this.state.noteArray.map((val,key) => {
@@ -148,7 +133,6 @@ const styles = StyleSheet.create({
   	backgroundColor: '#3498db',
   	alignItems: 'center',
   	justifyContent: 'center',
-  	borderBottomWidth: 0,
   },
   headerText: {
   	color: 'white',

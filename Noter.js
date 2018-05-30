@@ -15,7 +15,7 @@ export default class Note extends Component {
 
         <View style={styles.note}>
           <Text style={styles.noteTextDate} >{this.props.val.date}</Text>
-          <Text style={styles.noteText} >Note: {this.props.val.note}</Text>
+          <Text style={styles.noteText} > : {this.props.val.note}</Text>
     
         </View>
         <TouchableOpacity onPress={this.props.deleteMethod} style={styles.noteDelete}>
