@@ -12,7 +12,7 @@ const initialLayout = {
   width: Dimensions.get('window').width,
 };
 
-const FirstRoute = () => <View style={[ styles.container, { backgroundColor: '#FFCCCC' } ]} ><Main/></View>;
+const FirstRoute = () => <View style={[ styles.container, { backgroundColor: '#DCDCDC' } ]} ><Main/></View>;
 const SecondRoute = () => <View style={[ styles.container, { backgroundColor: '#FFFF99' } ]}><EventsView/></View>;
 const ThirdRoute = () => <View style={[ styles.container, { backgroundColor: 'white'}]} />;
 const FourRoute = () => <View style={[ styles.container, ]}> <AgendaScreen/></View>;

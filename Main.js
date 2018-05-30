@@ -90,6 +90,7 @@ export default class Main extends Component {
               underlineColorAndroid='transparent'>
             </TextInput>
         </View>
+
          
          <TouchableOpacity onPress={this.addNote.bind(this)} style={styles.addButton}>
            <Text style={styles.addButtonText}>+</Text>
@@ -165,7 +166,7 @@ const styles = StyleSheet.create({
   	zIndex: 11,
   	right: 20,
   	bottom: 90,
-  	backgroundColor: '#0066ff',
+  	backgroundColor: '#3498db',
   	width: 60,
   	height: 60,
   	borderRadius: 50,
