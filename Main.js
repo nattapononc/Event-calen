@@ -17,7 +17,7 @@ export default class Main extends Component {
 
   componentDidMount(){
     axios.get('http://192.168.40.165:2403/note')
-    .then(res => {const name = res.data
+    .then(res => {const name = res.data;
     this.setState({name})
     })
   }
@@ -89,8 +89,7 @@ export default class Main extends Component {
               placeholderTextColor='white'
               underlineColorAndroid='transparent'>
             </TextInput>
-
-         </View>
+        </View>
          
          <TouchableOpacity onPress={this.addNote.bind(this)} style={styles.addButton}>
            <Text style={styles.addButtonText}>+</Text>
@@ -126,50 +125,56 @@ export default class Main extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+  	flex:1,
   },
   header: {
-    backgroundColor: '#e91e63',
-    alignItems: 'center',
-    justifyContent: 'center',
+  	backgroundColor: '#3498db',
+  	alignItems: 'center',
+  	justifyContent: 'center',
+  	borderBottomWidth: 10,
   },
-    headerText: {
-     color: 'white',
-     fontSize: 18,
-     padding: 26,
+  headerText: {
+  	color: 'white',
+  	fontSize: 18,
+  	padding: 26,
   },
-    scrollContainer: {
-     flex: 1,
-     marginBottom: 100,
+  scrollContainer: {
+  	flex: 1,
+  	paddingTop: 50,
+  	paddingBottom: 100,
   },
   footer: {
-     position: 'absolute',
-     bottom: 0,
-     left: 0,
-     right: 0,
-
+  	position: 'absolute',
+  	top: 70,
+  	left: 0,
+  	right: 0,
+  	zIndex: 10,
   },
-    textInput: {
-     alignSelf: 'stretch',
-     color: '#fff',
-     padding: 20,
-     backgroundColor:'#252525',
-     borderTopWidth:2,
-     borderTopColor: '#ededed',
+  textInput: {
+  	alignSelf: 'stretch',
+  	color: '#FFF',
+  	fontSize: 16,
+  	padding: 20,
+  	paddingLeft: 20,
+  	backgroundColor: '#252525',
+  	borderTopWidth: 2,
+  	borderRightColor: '#EDEDED',
   },
-    addButton: {
-     position: 'absolute',
-     right: 20,
-     bottom: 70,
-     backgroundColor:'#e91e63',
-     width: 70,
-     height: 70,
-     borderRadius: 50,
-     alignItems: 'center',
-     justifyContent: 'center',
+  addButton: {
+  	position: 'absolute',
+  	zIndex: 11,
+  	right: 20,
+  	bottom: 90,
+  	backgroundColor: '#0066ff',
+  	width: 60,
+  	height: 60,
+  	borderRadius: 50,
+  	alignItems: 'center',
+  	justifyContent: 'center',
+  	elevation: 8,  
   },
-    addButtonText: {
-     color: '#fff',
-     fontSize: 24,
+  addButtonText: {
+  	color: '#FFF',
+  	fontSize: 20,
   },
 });

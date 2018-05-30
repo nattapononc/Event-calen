@@ -10,50 +10,67 @@ export default class Note extends Component {
   render() {
     return (
 
-        <View key={this.props.keyval} style={styles.note}>
-           <Text style={styles.noteText}>
-             { this.props.val.date}
-            </Text>
-            <Text style={styles.noteText}>
-             { this.props.val.note}
-            </Text>
-           <Text style={styles.noteText}>
-             { this.props.prueba}
-            </Text>
-          <TouchableOpacity onPress={this.props.deleteMethod} style={styles.noteDelete}>
-           <Text style={styles.noteDeleteText}>DEL</Text>
-         </TouchableOpacity>
-         
-         </View>
-    );
-  }
+      <View key={this.props.keyval} style={styles.noteBox}>
+      <Text style={styles.noteTextIndex} >{this.props.keyval+1}</Text>
+
+      <View style={styles.note}>
+        <Text style={styles.noteTextDate} >{this.props.val.date}</Text>
+        <Text style={styles.noteText} >Note: {this.props.val.note}</Text>
+  
+      </View>
+      <TouchableOpacity onPress={this.props.deleteMethod} style={styles.noteDelete}>
+        <Text style={styles.noteDeleteText}>Delete</Text>
+      </TouchableOpacity>    
+    </View>
+
+  );
+}
 }
 
 
 const styles = StyleSheet.create({
-   note: {
+  noteBox: {
     position: 'relative',
-    padding: 20,
-    paddingRight: 100,
-    borderBottomWidth:2 ,
-    borderBottomColor:'#ededed' ,
+    paddingTop: 10,
+    paddingRight: 50,
+    paddingBottom: 10,
+    paddingLeft: 20,
+    borderBottomWidth: 2,
+    borderBottomColor: '#EDEDED',
+    flexDirection: 'row',
+  },
+  note: {
+    marginLeft: 10,
+    marginRight: 50,
+  },
+  noteTextIndex: {
+    alignSelf: 'flex-start', 
+    padding: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
+    backgroundColor: '#E91E63',
+    fontSize: 24,
+    color: 'white',
+  },
+  noteTextDate: {
+    marginTop: -3,
+    color: 'red',
+    fontSize: 16,
   },
   noteText: {
-    paddingLeft: 20,
-    borderLeftWidth: 10,
-    borderLeftColor: '#e91e63',
+    fontSize: 16,
   },
   noteDelete: {
-     position: 'absolute',
-     justifyContent: 'center',
-     alignItems: 'center',
-     backgroundColor: '#2980b9',
-     padding: 10,
-     top: 10,
-     bottom:10,
-     right:10,
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#2980B9',
+    padding: 10,
+    top: 10,
+    bottom: 10,
+    right: 10,
   },
   noteDeleteText: {
-     color: 'white',
+    color: 'white',
   },
 });

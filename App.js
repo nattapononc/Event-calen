@@ -61,6 +61,6 @@ export default class TabViewExample extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === "ios" ? 25 : 0,
+    // paddingTop: Platform.OS === "ios" ? 25 : 0,
   },
 });
