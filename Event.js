@@ -1,51 +1,57 @@
-import * as React from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
-import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
+import Tabbar from 'react-native-tabbar-bottom'
+import React, { Component } from 'react';
+import { 
+  Text,
+  View, 
+  StyleSheet,
+  } from 'react-native';
+import EventsView from './event2';
 
-const initialLayout = {
-  height: 0,
-  width: Dimensions.get('window').width,
-};
 
-const FirstRoute = () => <View style={[ styles.container, { backgroundColor: 'pink' } ]} />;
-const SecondRoute = () => <View style={[ styles.container, { backgroundColor: 'skyblue' } ]} />;
-const ThirdRoute = () => <View style={[ styles.container, { backgroundColor: 'white'}]} />;
-
-export default class TabViewExample extends React.Component {
-  state = {
-    index: 0,
-    routes: [
-      { key: 'first', title: 'Note' },
-      { key: 'second', title: 'Event' },
-      { key: 'third', title: 'Me'},
-    ],
-  };
-
-  _handleIndexChange = index => this.setState({ index });
-
-  _renderHeader = props => <TabBar {...props} />;
-
-  _renderScene = SceneMap({
-    first: FirstRoute,
-    second: SecondRoute,
-    third: ThirdRoute,
-  });
+export default class Event extends Component {
+  constructor() {
+    super()
+    this.state = {
+      page: "Event P",
+    }
+  }
 
   render() {
     return (
-      <TabViewAnimated
-        navigationState={this.state}
-        renderScene={this._renderScene}
-        renderHeader={this._renderHeader}
-        onIndexChange={this._handleIndexChange}
-        initialLayout={initialLayout}
-      />
+      <View style={styles.container}>
+        {
+          // if you are using react-navigation just pass the navigation object in your components like this:
+          // {this.state.page === "HomeScreen" && <MyComp navigation={this.props.navigation}>Screen1</MyComp>}
+        }
+        {this.state.page === "Event P" && <View style={[ styles.container]}><EventsView/></View>}
+        {this.state.page === "Event N" && <View style={[ styles.container]}><Text> page2</Text></View>}
+
+
+        <Tabbar
+          stateFunc={(tab) => {
+            this.setState({page: tab.page})
+            //this.props.navigation.setParams({tabTitle: tab.title})
+          }}
+          activePage={this.state.page}
+          tabs={[
+            {
+              page: "Event P",
+              icon: "ios-calendar",
+            },
+
+            {
+              page: "Event N",
+              icon: "ios-contact",
+            },
+          ]}
+        />
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-  },
+    flex: 1
+  }
 });

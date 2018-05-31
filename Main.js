@@ -18,7 +18,7 @@ import { Constants } from "expo";
 export default class Main extends Component {
 
   componentDidMount(){
-    axios.get('http://172.20.10.10:2403/note' )
+    axios.get('http://192.168.40.165:2403/note' )
     .then(res => {const note = res.data;
     this.setState({noteArray:note})
   })
@@ -42,14 +42,14 @@ export default class Main extends Component {
     handleSubmit() {
                       
         
-        axios.post('http://172.20.10.10:2403/note', this.state.noteArray[this.state.noteArray.length-1])
+        axios.post('http://192.168.40.165:2403/note', this.state.noteArray[this.state.noteArray.length-1])
             .then(res => {
                 console.log(res);
                 console.log(res.data);
             })
             .catch(error => console.log(error))
 
-        axios.get('http://172.20.10.10:2403/note')
+        axios.get('http://192.168.40.165:2403/note')
             .then(res => {
               console.log(res);
               console.log(res.data);
@@ -61,7 +61,7 @@ export default class Main extends Component {
 
     handleDelete(id){
 
-      axios.delete('http://172.20.10.10:2403/note/'+id)
+      axios.delete('http://192.168.40.165:2403/note/'+id)
         .then(res => {
           console.log(res);
           console.log(res.data);
@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
   	flex:1,
   },
   header: {
+    bottom: 18,
     borderRadius:5,
   	backgroundColor: '#3498db',
   	alignItems: 'center',
@@ -183,12 +184,12 @@ const styles = StyleSheet.create({
   addButton: {
   	position: 'absolute',
   	zIndex: 20,
-  	right: 20,
-  	bottom: 25,
+  	right: 1,
+  	bottom: 488,
   	backgroundColor: '#3498db',
-  	width: 70,
-  	height: 70,
-  	borderRadius: 50,
+  	width: 60,
+  	height: 60,
+  	borderRadius: 30,
   	alignItems: 'center',
   	justifyContent: 'center',
   	elevation: 8,  

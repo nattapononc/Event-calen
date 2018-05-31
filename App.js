@@ -5,6 +5,8 @@ import  Tap  from './Tap';
 import AgendaScreen from './agenda';
 import EventsView from './event2';
 import Main from './Main';
+import Profile from './Profile';
+import Event from './Event';
 
 
 const initialLayout = {
@@ -13,8 +15,8 @@ const initialLayout = {
 };
 
 const FirstRoute = () => <View style={[ styles.container, { backgroundColor: '#DCDCDC' } ]} ><Main/></View>;
-const SecondRoute = () => <View style={[ styles.container, { backgroundColor: '#DCDCDC' } ]}><EventsView/></View>;
-const ThirdRoute = () => <View style={[ styles.container, { backgroundColor: '#DCDCDC'}]} />;
+const SecondRoute = () => <View style={[ styles.container, { backgroundColor: '#DCDCDC' } ]}><Event/></View>;
+const ThirdRoute = () => <View style={[ styles.container, { backgroundColor: '#DCDCDC'}]} ><Profile/></View>;
 const FourRoute = () => <View style={[ styles.container, ]}> <AgendaScreen/></View>;
 
 export default class TabViewExample extends React.Component {
@@ -26,7 +28,7 @@ export default class TabViewExample extends React.Component {
       { key: 'first', title: 'Note' },
       { key: 'second', title: 'Event' },
       { key: 'third', title: 'Me'},
-      { key: 'four', title: 'Calend'},
+      { key: 'four', title: '📅'},
     ],
   };
   }

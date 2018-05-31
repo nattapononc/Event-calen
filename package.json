@@ -1,5 +1,5 @@
 {
-  "name": "project",
+  "name": "Event-calen",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -20,11 +20,15 @@
   },
   "dependencies": {
     "expo": "^27.0.1",
+    "native-base": "^2.4.5",
     "react": "16.3.1",
     "react-native": "~0.55.2",
     "react-native-calendars": "^1.19.3",
     "react-native-elements": "^0.19.1",
+    "react-native-form-generator": "^0.9.9",
+    "react-native-swiper": "^1.5.13",
     "react-native-tab-view": "0.0.78",
+    "react-native-tabbar-bottom": "^1.0.4",
     "react-navigation": "^2.0.4"
   }
 }
