@@ -14,7 +14,8 @@ export default class Note extends Component {
         <Text style={styles.noteTextIndex} >{this.props.keyval+1}</Text>
 
         <View style={styles.note}>
-          <Text style={styles.noteTextDate} >{this.props.val.date}</Text>
+          <Text style={styles.noteTextDate} >{this.props.val.day+'/'+this.props.val.month+'/'+this.props.val.year}</Text>
+          <Text style={styles.noteTextDate} >{this.props.val.time}</Text>
           <Text style={styles.noteText} > : {this.props.val.note}</Text>
     
         </View>

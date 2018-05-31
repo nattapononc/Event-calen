@@ -69,14 +69,14 @@ export default class EventsView extends Component {
         
     };
 
-    axios.post('http://192.168.40.165:2403/note', note)
+    axios.post('http://172.20.10.10:2403/note', note)
         .then(res => {
             console.log(res);
             console.log(res.data);
         })
         .catch(error => console.log(error))
 
-    axios.get('http://192.168.40.165:2403/note', )
+    axios.get('http://172.20.10.10:2403/note', )
         .then(res => {
           console.log(res);
           console.log(res.data);

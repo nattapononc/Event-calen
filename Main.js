@@ -7,20 +7,23 @@ TextInput,
 ScrollView,
 TouchableOpacity,
 KeyboardAvoidingView,
+noteArray,
 } from 'react-native';
 
 import Note from './Noter';
 import axios from 'axios';
+import { Constants } from "expo";
 
 
 export default class Main extends Component {
 
   componentDidMount(){
-    axios.get('http://192.168.40.165:2403/note')
-    .then(res => {const name = res.data;
-    this.setState({name})
-    })
-  }
+    axios.get('http://172.20.10.10:2403/note' )
+    .then(res => {const note = res.data;
+    this.setState({noteArray:note})
+  })
+}
+
   
    constructor(props) {
         super(props);
@@ -28,38 +31,47 @@ export default class Main extends Component {
         this.state = {
             noteArray: [],
             noteText: '',
-            name: '',
+            note: '',
             text: '',
-            
+            time: {},
+            id:'',
         }
       }
     
       
-      handleSubmit() {
-
-
-        const note = {
-            name: this.state.text
-        };
-
-        axios.post('http://192.168.40.165:2403/note', note)
+    handleSubmit() {
+                      
+        
+        axios.post('http://172.20.10.10:2403/note', this.state.noteArray[this.state.noteArray.length-1])
             .then(res => {
                 console.log(res);
                 console.log(res.data);
             })
             .catch(error => console.log(error))
 
-        axios.get('http://192.168.40.165:2403/note', )
+        axios.get('http://172.20.10.10:2403/note')
             .then(res => {
               console.log(res);
               console.log(res.data);
-            })
+              this.setState({noteArray:res.data})
+              })
             .catch(error => console.log(error))
 
     }
 
-    handleChange = (text) => {
-      this.setState({name:text})
+    handleDelete(id){
+
+      axios.delete('http://172.20.10.10:2403/note/'+id)
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+        })
+    }
+
+
+
+    handleChange = (id) => {
+      this.setState({id: this.state.id});
     }    
     
   
@@ -70,11 +82,11 @@ export default class Main extends Component {
     });
     
     return (
-  
       <View style={styles.container}>
+      <Text>{this.state.note}</Text>
           <View style={styles.header}>
             <Text style={styles.headerText}>
-              NOTE
+              NOTE 
             </Text>
          </View>
           <ScrollView style={styles.scrollContainer}>
@@ -91,7 +103,6 @@ export default class Main extends Component {
             </TextInput>
         </View>
 
-         
          <TouchableOpacity onPress={this.addNote.bind(this)} style={styles.addButton}>
            <Text style={styles.addButtonText}>+</Text>
          </TouchableOpacity>
@@ -103,11 +114,14 @@ export default class Main extends Component {
     if(this.state.text){
       var d= new Date();
       this.state.noteArray.push({
-        'date': d.getFullYear()+
-        '/'+ (d.getMonth()+1) +
-        '/'+ d.getDate(),
-        'note': this.state.text
+        'year': d.getFullYear(), 
+        'month':d.getMonth(),
+        'day':d.getDate(),
+        'time':d.getHours() +":"+d.getMinutes()+":"+d.getSeconds(),
+        'note': this.state.text,
       });
+
+      console.log(this.state.noteArray[this.state.noteArray.length-1]),
       
       this.handleSubmit();
       this.setState({noteArray: this.state.noteArray});
@@ -133,6 +147,7 @@ const styles = StyleSheet.create({
   	backgroundColor: '#3498db',
   	alignItems: 'center',
   	justifyContent: 'center',
+  	borderBottomWidth: 0,
   },
   headerText: {
   	color: 'white',
